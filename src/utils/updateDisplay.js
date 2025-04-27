@@ -8,7 +8,11 @@ export function updateDisplay() {
 
   const number = +calculatorState.current;
 
-  displayElement.textContent = formatResult(number);
+  if (isNaN(number)) {
+    displayElement.textContent = 'Error';
+  } else {
+    displayElement.textContent = formatResult(number);
+  }
 }
 
 function formatResult(number) {
